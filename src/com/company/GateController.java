@@ -17,7 +17,7 @@ public class GateController implements Observer {
         this.gateNumber = gateNumber;
         isOpen = false;
         try {
-            fileWriter = new FileWriter("/R://Mangrove_Shrimp//Gate Data.csv");
+            fileWriter = new FileWriter("/R://Mangrove_Shrimp//Gate Data.csv", true);
             CSVWriter csvWriter = new CSVWriter(fileWriter);
 
             // Write the header row
@@ -64,12 +64,12 @@ public class GateController implements Observer {
     private void saveGateData(int gateNumber, String time) { //saving data to database
         // Create a FileWriter object for the CSV file
         try{
-            fileWriter = new FileWriter("/R://Mangrove_Shrimp//Gate Data.csv");
+            fileWriter = new FileWriter("/R://Mangrove_Shrimp//Gate Data.csv", true);
             // Create a CSVWriter object with a comma separator
             CSVWriter csvWriter = new CSVWriter(fileWriter);
 
             // Write some data rows
-            String[] string = {String.valueOf(gateNumber), ",", time};
+            String[] string = {String.valueOf(gateNumber), time};
             csvWriter.writeNext(string);
 
             csvWriter.close();
